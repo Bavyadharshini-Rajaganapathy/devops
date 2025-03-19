@@ -67,10 +67,31 @@ Minikube installation:
 8. kubectl get replica or rs or replicaaset
 9. kubectl get pod -o wide
 
+Docker Compose:
 
-sudo nano docker-compose.yml
-ls
-simple-web-app
-docker-compose up -d
-docker-compose ps
-sudo exec -it <container name> bin/bash
+1. sudo apt install docker-compose -y
+2. sudo nano docker-compose.yml
+
+{
+  version: '3'
+
+services:
+  web:
+    image: nginx:latest
+    ports:
+      - "80:80"
+
+  db:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: "1234"
+
+}
+
+3. docker-compose up -d
+4. docker-compose images
+5. docker-compose ps
+6. sudo docker exec -it bavya_db_1 bash
+7. mysql -u root -p
+
+
