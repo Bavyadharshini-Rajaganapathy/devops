@@ -94,4 +94,13 @@ services:
 6. sudo docker exec -it bavya_db_1 bash
 7. mysql -u root -p
 
+Cloning git repository (Maven Jenkins): 
+1. git clone https://github.com/Bavyadharshini-Rajaganapathy/devops1.git
+2. cd devops1
 
+3. Go to localhost:8080
+4. Create an Item named Maven freestyle
+5. Choose git 
+6. Select Execute shell
+   Shell:
+      mvn clean package
