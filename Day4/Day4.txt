@@ -36,3 +36,35 @@ spec:
 5.kubectl create pod my-pod --image=nginx
 6.kubectl delete deployment web-nginx
 7.kubectl delete pod my-pod
+
+
+sudo nano rs-test.yml
+{
+
+apiVersion: apps/v1  
+kind: ReplicaSet
+metadata:
+  name: my-rs
+  labels:
+    name: my-rs
+spec:
+  replicas: 3  
+  selector:
+    matchLabels:
+      apptype: web-backend
+  template:
+    metadata:
+      labels:
+        apptype: web-backend
+    spec:
+      containers:
+      - name: my-app
+        image: bavyadharshini/simplewebapp:latest
+        ports:
+          - containerPort: 9099
+
+
+}
+
+kubectl apply -f rs-test.yml
+kubectl get pods
