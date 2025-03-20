@@ -1,0 +1,38 @@
+1. minikube start
+2. kubectl get pod
+3. kubectl delete all --all
+4. kubectl run my-pod --image=nginx --port=80
+5. kubectl get pod
+6. kubectl get pod -o wide
+7. kubectl describe my-pod1
+8. kubectl exec -it my-pod1 -- bin/bash
+
+pod.yml:
+
+{
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-app
+spec:
+  containers:
+    - name: my-app-container
+      image: bavyadharshini/simplewebapp:tagname
+      ports:
+        - containerPort: 9090  
+
+}
+
+9. kubectl apply -f pod.yml
+10. kubectl get pods
+11.  kubectl exec -it my-app -- /bin/sh
+
+
+1.minikube ip
+2.kubectl get rs
+3.kubectl create deployment web-nginx --image=nginx --replicas=1
+4.kubectl get deploy
+5.kubectl create pod my-pod --image=nginx
+6.kubectl delete deployment web-nginx
+7.kubectl delete pod my-pod
