@@ -1,0 +1,44 @@
+Deployment Creation:
+
+1. sudo nano deployment
+
+{
+  apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    name: my-deploy
+    labels:
+      name: my-deploy
+  spec:
+    replicas: 4
+    selector:
+      matchLabels:
+        apptype: web-backend
+    strategy:
+      type: RollingUpdate
+    template:
+      metadata:
+        labels:
+          apptype: web-backend
+      spec:
+        containers:
+        - name: my-app
+          image: bavyadharshini/simplewebapp:latest
+          ports:
+                - containerPort: 7076
+}
+
+2. kubectl apply -f deployment.yml
+3. kubectl get pods
+4. kubectl scale deploy my-deploy --replicas=2
+
+1. kubectl create -f deployment.yml
+2. kubectl get pods
+3. kubectl scale deploy my-deploy --replicas=1
+4. kubectl replace -f deployment.yml
+
+
+minikube service my-service
+kubectl get pod -o wide
+ping <>
+minikube ssh
