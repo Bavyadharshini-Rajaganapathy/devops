@@ -1,0 +1,26 @@
+1. sudo nano deploy.yml
+
+{
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: my-demo-ns
+}
+
+2. kubectl apply -f deploy.yml
+3. sudo nano nspod.yml
+
+{
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-pod
+  namespace: my-demo-ns
+spec:
+  containers:
+  - name: my-container
+    image: nginx:latest
+}
+
+4. kubectl apply -f nspod.yml
+5. kubectl get pod -n my-demo-ns
