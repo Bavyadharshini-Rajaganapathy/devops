@@ -23,3 +23,5 @@ ssh installtion:
 7. cat url | base64 -w 0; echo
 8. minikube start
 9. kubectl get node
+
+
