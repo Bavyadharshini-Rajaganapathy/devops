@@ -1,0 +1,25 @@
+1. sudo visudo
+2. Add jenkins ALL=(ALL) NOPASSWD: ALL
+
+ssh installtion:
+
+1. sudo systemctl restart ssh.service
+2. sudo systemctl restart sshd.service
+3. sudo apt update
+4. sudo apt install openssh-server
+5. sudo systemctl restart ssh
+6. sudo systemctl status ssh
+7. ls /etc/systemd/system/sshd.service or ls /usr/lib/systemd/system/sshd.service
+8. sudo systemctl daemon-reload
+9. sudo systemctl status ssh
+
+
+1. cd ~/.kube
+2. ls 
+3. cat config
+4. sudo vi config
+5. i
+6. -data
+7. cat url | base64 -w 0; echo
+8. minikube start
+9. kubectl get node
