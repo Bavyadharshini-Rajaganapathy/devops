@@ -155,3 +155,9 @@ stage('push to hub') {
 6. sudo chmod 666 /var/run/docker.sock
 7. ls -lrt /var/run/docker.sock
 
+Jenkins Restart issue:
+
+1. dpkg -l | grep jenkins
+2. systemctl list-units --type=service | grep jenkins
+3. sudo systemctl restart jenkins
+4. sudo systemctl status jenkins
